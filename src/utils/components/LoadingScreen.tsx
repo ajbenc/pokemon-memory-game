@@ -22,7 +22,7 @@ export const LoadingScreen = () => {
         className="pokeball-image-container"
       >
         <img 
-          src="/images/pokeball-closed.png" 
+          src={`${import.meta.env.BASE_URL}images/pokeball-closed.png`}
           alt="Loading Pokeball" 
           className="pokeball-image"
         />

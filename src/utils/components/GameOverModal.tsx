@@ -39,7 +39,11 @@ export const GameOverModal = ({
 
         <div className="modal-inner">
           <img
-            src={isVictory ? "/images/pokeball-open.png" : "/images/pokeball-closed.png"}
+              src={
+                isVictory 
+                  ? `${import.meta.env.BASE_URL}images/pokeball-open.png`
+                  : `${import.meta.env.BASE_URL}images/pokeball-closed.png`
+              }
             alt={isVictory ? "Victory" : "Defeat"}
             className="modal-image"
           />
