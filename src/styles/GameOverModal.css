@@ -1,0 +1,137 @@
+.game-over-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  background: linear-gradient(145deg, #2b6cb0, #2c5282);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+}
+
+.victory {
+  background: linear-gradient(145deg, #48bb78, #38a169);
+}
+
+.defeat {
+  background: linear-gradient(145deg, #c53030, #9b2c2c);
+}
+
+.sparkles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ecc94b;
+  border-radius: 50%;
+  animation: float 3s infinite;
+}
+
+.sparkle:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 1s;
+}
+
+.sparkle:nth-child(3) {
+  top: 60%;
+  left: 40%;
+  animation-delay: 2s;
+}
+
+.modal-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.modal-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  animation: bounce 1s infinite;
+}
+
+.modal-title {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.score-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.score-text {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.score-message {
+  color: #ecc94b;
+  margin: 0.5rem 0 0;
+}
+
+.restart-button {
+  background: #ecc94b;
+  color: #2d3748;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.restart-button:hover {
+  background: #d69e2e;
+  transform: scale(1.05);
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}

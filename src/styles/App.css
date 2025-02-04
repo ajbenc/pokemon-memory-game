@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+
+.app-container {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a202c, #2d3748);
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-effects {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.background-blur {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: float 8s infinite ease-in-out;
+}
+
+.purple-blur {
+  background: rgba(128, 90, 213, 0.4);
+  top: -15rem;
+  left: -15rem;
+}
+
+.blue-blur {
+  background: rgba(56, 189, 248, 0.4);
+  bottom: -15rem;
+  right: -15rem;
+  animation-delay: 4s;
+}
+
+.app-content {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  z-index: 1;
+  text-align: center;
+}
+
+.app-header {
+  margin-bottom: 3rem;
+}
+
+.app-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-family: "Pokemon Solid", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  animation: slide-in-left 1s;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.score-box {
+  background: linear-gradient(145deg, #2d112c, #ff073a);
+  padding: 1.5rem 3.5rem;
+  border-radius: 15px;
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 5px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.score-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 75%
+  );
+  animation: shine 3s infinite linear;
+  z-index: 1;
+}
+
+.score-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 2px 2px 0 #000, 3px 3px 0 #ff4500;
+  letter-spacing: 2px;
+}
+
+.score-box:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 40px rgba(60, 90, 166, 0.8), 0 0 30px rgba(255, 203, 5, 0.6);
+}
+
+.app-subtitle {
+  color: #ffffff;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff4500;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  z-index: 1;
+}
+
+@keyframes shine {
+  0% {
+    transform: translate(-30%, -30%) rotate(0deg);
+  }
+  100% {
+    transform: translate(30%, 30%) rotate(360deg);
+  }
+}
+
+@keyframes neon-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 25px rgba(60, 90, 166, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(60, 90, 166, 0.8), 0 0 30px rgba(255, 203, 5, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.score-box {
+  animation: neon-pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-title {
+    font-size: 2.5rem;
+  }
+
+  .score-box {
+    padding: 1rem 2rem;
+  }
+
+  .score-text {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .score-box {
+    padding: 1.2rem 2.5rem;
+  }
+  .score-text {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .score-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .score-box {
+    width: 80%;
+    padding: 1rem 2rem;
+  }
+  .score-text {
+    font-size: 1.5rem;
+  }
+}

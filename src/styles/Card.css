@@ -1,0 +1,147 @@
+/* Card.css */
+.card-container {
+  perspective: 1000px;
+  margin: 1rem;
+}
+
+.card-button {
+  background: none;
+  border: none;
+  width: 100%;
+  height: 240px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+ 
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Front Styles */
+.card-front {
+  background: url('/images/card-background.png') center/cover;
+  border: 4px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-front::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+      45deg,
+      transparent 25%,
+      rgba(255,255,255,0.1) 50%,
+      transparent 75%
+  );
+  animation: shine 4s infinite linear;
+}
+
+/* Neon Color Classes */
+.card-front.neon-red {
+  border-color: #ff073a;
+  box-shadow: 0 0 20px #ff073a;
+}
+
+.card-front.neon-blue {
+  border-color: #00f3ff;
+  box-shadow: 0 0 20px #00f3ff;
+}
+
+.card-front.neon-green {
+  border-color: #39ff14;
+  box-shadow: 0 0 20px #39ff14;
+}
+
+.card-front.neon-yellow {
+  border-color: #ffe600;
+  box-shadow: 0 0 20px #ffe600;
+}
+
+.card-front.neon-purple {
+  border-color: #bc13fe;
+  box-shadow: 0 0 20px #bc13fe;
+}
+
+/* Card Back Styles */
+.card-back {
+  background: linear-gradient(145deg, #2d112c, #000000);
+  transform: rotateY(180deg);
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+}
+
+
+/* Content Styles */
+.card-content {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+}
+
+.card-image {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.card-name {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 
+      1px 1px 2px rgba(0, 0, 0, 0.8),
+      0 0 10px currentColor;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes shine {
+  0% { transform: translate(-30%, -30%) rotate(0deg); }
+  100% { transform: translate(30%, 30%) rotate(360deg); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
